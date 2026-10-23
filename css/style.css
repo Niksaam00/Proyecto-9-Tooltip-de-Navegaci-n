@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+main {
+    margin-top: 450px;
+    padding: 60px 30px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+}
+
+a {
+    position: relative;
+    color: red;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.Tooltip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    background-color: brown;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    white-space: nowrap;
+    z-index: 10;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.Tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border: 9px solid transparent;
+    border-top-color: #000;
+}
+
+    a:hover .Tooltip,
+    a:focus-visible .Tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
